@@ -6,7 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Projet_JEE" />
+        <module name="JuniaProjet-core" />
+        <module name="JuniaProjet-web" />
       </profile>
     </annotationProcessing>
   </component>
