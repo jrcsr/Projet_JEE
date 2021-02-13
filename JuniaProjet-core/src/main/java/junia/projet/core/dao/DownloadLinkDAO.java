@@ -11,6 +11,7 @@ import java.util.List;
 
 public interface DownloadLinkDAO extends CrudRepository<DownloadLink,Long> {
 
-    List<DownloadLink> findAllByFormatAccessProfileListContainingAndIdEquals(Profile profile,long id);
+    DownloadLink findByFormatAccessProfileListContainingAndIdEquals(Profile profile,long id);
+
     DownloadLink findById (long id);
 }

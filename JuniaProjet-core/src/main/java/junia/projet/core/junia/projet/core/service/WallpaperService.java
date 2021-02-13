@@ -11,6 +11,9 @@ import java.util.List;
 public class WallpaperService {
     private WallpaperDAO wallpaperDAO;
 
+    public WallpaperService(WallpaperDAO wallpaperDAO) {
+        this.wallpaperDAO = wallpaperDAO;
+    }
 
     public List<Wallpaper> getWallpaperByProfile(Profile profile){
         return wallpaperDAO.findAllByAccessProfileListContaining(profile);

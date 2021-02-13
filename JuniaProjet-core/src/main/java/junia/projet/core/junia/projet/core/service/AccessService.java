@@ -23,8 +23,8 @@ public class AccessService {
         return accessDAO.findById(id);
     }
 
-    public List<Access> getAccessByProfile(long profileId){
-        List<Access> accessList=accessDAO.getListOfAccessByProfile(profileId);
-        return accessList;
+    public void deleteAll(){
+        accessDAO.deleteAll();
     }
+
 }
