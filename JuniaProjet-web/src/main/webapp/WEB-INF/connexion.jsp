@@ -13,9 +13,9 @@
         <legend>Connexion</legend>
         <p>Vous pouvez vous connecter via ce formulaire.</p>
 
-        <label for="email">Adresse email <span class="requis">*</span></label>
-        <input type="email" id="email" name="email" value="<c:out value="${User.email}"/>" size="20" maxlength="60" />
-        <span class="erreur">${form.erreurs['email']}</span>
+        <label for="nom">Adresse email <span class="requis">*</span></label>
+        <input type="nom" id="nom" name="nom" value="<c:out value="${User.password}"/>" size="20" maxlength="60" />
+        <span class="erreur">${form.erreurs['nom']}</span>
         <br />
 
         <label for="motdepasse">Mot de passe <span class="requis">*</span></label>
@@ -27,6 +27,11 @@
         <br />
 
         <p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>
+
+        <c:if test="${!empty sessionScope.sessionUtilisateur}">
+            <%-- Si l'utilisateur existe en session, alors on affiche son adresse email. --%>
+            <p class="succes">Vous êtes connecté(e) avec le nom : ${sessionScope.sessionUtilisateur.nom}</p>
+        </c:if>
     </fieldset>
 </form>
 </body>
