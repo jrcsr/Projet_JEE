@@ -35,7 +35,7 @@ public final class ConnexionForm {
         } catch ( Exception e ) {
             setErreur( CHAMP_PASS, e.getMessage() );
         }
-        User.setPassword( motDePasse );
+        utilisateur.setPassword( motDePasse );
 
         /* Initialisation du résultat global de la validation. */
         if ( erreurs.isEmpty() ) {
