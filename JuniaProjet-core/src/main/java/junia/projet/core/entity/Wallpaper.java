@@ -1,6 +1,9 @@
 package junia.projet.core.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -13,16 +16,18 @@ public class Wallpaper {
 
     private String wallpaperName;
 
-    private Date date;
+    private LocalDate date;
 
     private String preview;
 
     @ManyToOne
     private Access access;
 
-    @OneToMany(cascade={CascadeType.ALL}, mappedBy="access")
+    @OneToMany(cascade={CascadeType.ALL}, mappedBy="wallpaper")
     private List<DownloadLink> downloadLinkList;
 
+    public Wallpaper() {
+    }
 
     public long getId() {
         return id;
@@ -40,11 +45,11 @@ public class Wallpaper {
         this.wallpaperName = wallpaperName;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

@@ -1,9 +1,12 @@
 package junia.projet.core.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@JsonIgnoreProperties(value={"wallpaperList","formatList"})
 public class Access {
 
     @Id
@@ -12,9 +15,23 @@ public class Access {
 
     private String accessName;
 
-    @ManyToMany(cascade={CascadeType.ALL}, mappedBy="access")
+    @ManyToMany
     private List<Profile> profileList;
 
+    @OneToMany (cascade={CascadeType.ALL}, mappedBy="access")
+    private List<Wallpaper> wallpaperList;
+
+    @OneToMany (cascade={CascadeType.ALL}, mappedBy="access")
+    private List<Format> formatList;
+
+    public Access(String accessName, List<Profile> profileList) {
+        this.accessName = accessName;
+        this.profileList = profileList;
+    }
+
+    public Access() {
+
+    }
 
     public String getAccessName() {
         return accessName;

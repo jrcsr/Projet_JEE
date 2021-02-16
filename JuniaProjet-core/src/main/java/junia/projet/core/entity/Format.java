@@ -1,8 +1,12 @@
 package junia.projet.core.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
+@JsonIgnoreProperties(value={"downloadLinkList"})
 public class Format {
 
     @Id
@@ -14,7 +18,16 @@ public class Format {
     @ManyToOne
     private Access access;
 
+    @OneToMany (cascade={CascadeType.ALL}, mappedBy="format")
+    private List<DownloadLink> downloadLinkList;
 
+    public Format(String formatName, Access access) {
+        this.formatName = formatName;
+        this.access = access;
+    }
+
+    public Format() {
+    }
 
     public long getId() {
         return id;

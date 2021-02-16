@@ -17,6 +17,8 @@ public class User {
     @ManyToOne
     private Profile profile;
 
+    public User() {
+    }
 
     public long getId() {
         return id;

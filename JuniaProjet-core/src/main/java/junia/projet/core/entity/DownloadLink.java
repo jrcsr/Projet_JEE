@@ -1,8 +1,11 @@
 package junia.projet.core.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
+@JsonIgnoreProperties(value={"wallpaper"})
 public class DownloadLink {
 
     @Id
@@ -14,10 +17,11 @@ public class DownloadLink {
     @ManyToOne
     private Format format;
 
-    //@ManyToOne
-    //private Wallpaper wallpaper;
+    @ManyToOne
+    private Wallpaper wallpaper;
 
-
+    public DownloadLink() {
+    }
 
     public long getId() {
         return id;
@@ -43,11 +47,11 @@ public class DownloadLink {
         this.format = format;
     }
 
-   /*public Wallpaper getWallpaper() {
+    public Wallpaper getWallpaper() {
         return wallpaper;
     }
 
     public void setWallpaper(Wallpaper wallpaper) {
         this.wallpaper = wallpaper;
-    }*/
+    }
 }

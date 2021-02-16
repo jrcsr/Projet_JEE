@@ -1,10 +1,12 @@
-package junia.projet.core.junia.projet.core.service;
+package junia.projet.core.service;
 
 import junia.projet.core.dao.FormatDAO;
 import junia.projet.core.entity.Format;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class FormatService {
 
     private FormatDAO formatDAO;

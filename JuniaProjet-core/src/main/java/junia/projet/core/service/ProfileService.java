@@ -1,8 +1,12 @@
-package junia.projet.core.junia.projet.core.service;
+package junia.projet.core.service;
 
 import junia.projet.core.dao.ProfileDAO;
 import junia.projet.core.entity.Profile;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+@Service
+@Transactional
 public class ProfileService {
 
     private ProfileDAO profileDAO;

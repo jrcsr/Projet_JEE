@@ -1,11 +1,12 @@
 package junia.projet.core.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
+@JsonIgnoreProperties(value={"accessList","userList"})
 public class Profile {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -13,7 +14,21 @@ public class Profile {
 
     private String profileName;
 
+    @ManyToMany
+    private List<Access> accessList;
 
+    @OneToMany(cascade={CascadeType.ALL}, mappedBy="profile")
+    private List<User> userList;
+
+
+
+
+
+
+
+    public Profile() {
+
+    }
 
     public long getId() {
         return id;
