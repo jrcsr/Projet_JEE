@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Lab04</title>
+
+    <link href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            padding-top: 50px;
+        }
+        img {
+            width: 100px;
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Wallpaper Download</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="jumbotron">
+        <h1>List of wallpapers</h1>
+
+    </div>
+
+
+    <table class="table table-striped">
+        #foreach($wallpaper in $wallpapers)
+            <tr>
+                <td>$wallpaper.wallpaperName</td>
+                <td>$wallpaper.date</td>
+                <td><img src="$wallpaper.preview"></td>
+                <td><a href="wallpaper/$wallpaper.id/downloadLinks" class="btn btn-danger">Download</a></td>
+            </tr>
+        #end
+    </table>
+</div>
+
+<div class="container">
+
+    <div class="jumbotron">
+        <h1>Upgrade your profile to download more!</h1>
+
+    </div>
+
+
+    <table class="table table-striped">
+        #foreach($otherWallpaper in $otherWallpapers)
+            <tr>
+                <td>$otherWallpaper.wallpaperName</td>
+                <td>$otherWallpaper.date</td>
+                <td><img src="$otherWallpaper.preview"></td>
+            </tr>
+        #end
+    </table>
+</div>
+
+
+</body>
+</html>

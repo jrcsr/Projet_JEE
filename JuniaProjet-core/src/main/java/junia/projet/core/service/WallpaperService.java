@@ -21,6 +21,10 @@ public class WallpaperService {
         return wallpaperDAO.findAllByAccessProfileListContaining(profile);
     }
 
+    public List<Wallpaper> getWallpaperByProfileMissing(Profile profile){
+        return wallpaperDAO.findAllByAccessProfileListIsNotContaining(profile);
+    }
+
     public void save(Wallpaper wallpaper){
         wallpaperDAO.save(wallpaper);
     }

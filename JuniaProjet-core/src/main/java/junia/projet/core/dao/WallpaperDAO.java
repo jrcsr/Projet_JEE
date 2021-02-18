@@ -16,6 +16,7 @@ import java.util.List;
 public interface WallpaperDAO extends JpaRepository<Wallpaper,Long> {
 
     List<Wallpaper> findAllByAccessProfileListContaining(Profile profile);
+    List<Wallpaper> findAllByAccessProfileListIsNotContaining(Profile profile);
 
     Wallpaper findById (long id);
 
