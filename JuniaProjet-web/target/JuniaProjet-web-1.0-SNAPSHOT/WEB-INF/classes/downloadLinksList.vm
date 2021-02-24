@@ -42,7 +42,12 @@
             <tr>
                 <td>$downloadLink.link</td>
                 <td>$downloadLink.format.formatName</td>
-                <td><a href="https://www.chucknorrisfacts.fr/" class="btn btn-danger">Download</a></td>
+                <td>
+                    <a href="$downloadLink.wallpaper.preview" title="$downloadLink.wallpaper.wallpaperName" class="btn btn-danger" target="_blank" download>
+                    Download
+                    <img style="height: 200px; width: 200px" alt="$downloadLink.wallpaper.wallpaperName" src="$downloadLink.wallpaper.preview">
+                    </a>
+                </td>
             </tr>
         #end
     </table>
