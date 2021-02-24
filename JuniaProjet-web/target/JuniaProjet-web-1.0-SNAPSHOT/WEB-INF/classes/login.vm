@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login page</title>
+    <link href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+<h1>Login page</h1>
+<form action="login" method="post">
+    <div><input type="text" name="username" placeholder="Login"></div>
+    <div><input type="password" name="password" placeholder="Password">
+    </div>
+    <div><input type="submit" value="Connection"></div>
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+</form>
+</body>
+</html>
